@@ -1,0 +1,44 @@
+*{
+    background-color: rgb(192, 243, 227);
+}
+
+.display {
+    height: 50px;
+    width: 310px;
+    margin: auto;
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+/* .calculator {
+    display: flex;
+    flex-direction: column;
+} */
+
+.calculator {
+    width: 400px;
+    height: 500px;
+    background-color: rgb(68, 66, 66);
+}
+
+.number-list {
+    width: 360px;
+    margin-left: auto;
+    background-color: rgb(68, 66, 66);
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+button {
+    width: 75px;
+    height: 75px;
+}
+
+
+
