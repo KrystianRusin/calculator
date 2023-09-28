@@ -60,8 +60,15 @@ const divide = (a,b) => {
 
 const equals = document.getElementById("=");
 equals.addEventListener('click', () => {
-    console.log(firstNumber)
-    console.log(secondNumber)
-    console.log(operator)
     operate(firstNumber, secondNumber, operator)
+    firstNumber = null;
+    secondNumber = null;
+    operator = null;
+})
+
+const clearBtn = document.getElementById('clear-btn')
+clearBtn.addEventListener('click', () => {
+    firstNumber = null;
+    secondNumber = null;
+    operator = null;
 })
