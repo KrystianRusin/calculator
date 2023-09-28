@@ -4,14 +4,21 @@ let operator;
 
 const addButton = document.getElementById("addBtn");
 addButton.addEventListener('click', () => {
-    firstNumber = prompt("enter first number")
-    secondNumber = prompt("enter second number")
     operate(firstNumber, secondNumber, "+")
 })
 
+const numbers = document.querySelectorAll(".number-input")
+numbers.forEach(number => number.addEventListener('click', (event) => {
+    if(firstNumber){
+        secondNumber = parseInt(event.target.id)
+    } else {
+        firstNumber = parseInt(event.target.id)
+    }
+}))
+
 const operate = (a, b, operatation) => {
     if(operatation === "+"){
-        console.log(add(firstNumber, secondNumber))
+        add(firstNumber, secondNumber)
     }
     if(operatation === "-"){
         subtract(firstNumber, secondNumber)
