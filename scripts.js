@@ -75,9 +75,8 @@ const equals = document.getElementById("=");
 equals.addEventListener('click', () => {
     operate(firstNumber, secondNumber, operator)
     printToDisplay(" = " + result)
-    firstNumber = null;
+    firstNumber = result;
     secondNumber = null;
-    result = firstNumber
     operator = null;
 })
 
