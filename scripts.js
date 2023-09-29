@@ -5,15 +5,7 @@ let result;
 
 const numbers = document.querySelectorAll(".number-input")
 numbers.forEach(number => number.addEventListener('click', (event) => {
-    if(operator){
-        if(secondNumber){
-            secondNumber += event.target.id
-            printToDisplay(event.target.id)
-        }else {
-            secondNumber = event.target.id
-            printToDisplay(event.target.id)
-        }
-    } else {
+    if(!operator){
         if(firstNumber){
             firstNumber += event.target.id
             printToDisplay(event.target.id)
@@ -21,17 +13,35 @@ numbers.forEach(number => number.addEventListener('click', (event) => {
             firstNumber = event.target.id
             printToDisplay(event.target.id)
         }
-        
+    } else {
+        if(secondNumber){
+            secondNumber += event.target.id
+            printToDisplay(event.target.id)
+        }else {
+            secondNumber = event.target.id
+            printToDisplay(event.target.id)
+        }
     }
+
 }))
+
+//Need to find a way to calculate current answer of two numbers between an operator every time the second number is edited
+//Number must be recalculated using the input first number and newly edited second number
+//Result is then stored after an operator is pressed
 
 const operations = document.querySelectorAll(".operation-input")
 operations.forEach(operation => operation.addEventListener('click', (event) => {
+    if(operator && secondNumber){
+        operate(firstNumber, secondNumber, operator)
+
+    }
     operator = event.target.id
     printToDisplay(operator)
 }))
 
 const operate = (a, b, operatation) => {
+    console.log("first: " + firstNumber)
+    console.log("second:" + secondNumber)
     if(operatation === "+"){
         result = add(firstNumber, secondNumber)
     }
@@ -44,6 +54,9 @@ const operate = (a, b, operatation) => {
     if(operatation === "/"){
         result = divide(firstNumber, secondNumber)
     }
+    firstNumber = result
+    secondNumber = null
+    console.log("result " + result)
 }
 
 const display = document.getElementById('display')
