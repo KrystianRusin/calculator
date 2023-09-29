@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 *{
     background-color: rgb(181, 207, 199);
 }
 
+.calculator {
+    margin-top: 100px;
+    width: 400px;
+    height: 500px;
+    background-color: rgb(68, 66, 66);
+    border: 3px solid black;
+}
+
 .display {
+    border: 2px solid black;
+    font-family: 'Orbitron', sans-serif;
     height: 50px;
     width: 310px;
     margin: auto;
@@ -33,16 +45,12 @@
     align-items: center;
 }
 
-/* .calculator {
-    display: flex;
-    flex-direction: column;
-} */
-
-.calculator {
-    width: 400px;
-    height: 500px;
-    background-color: rgb(68, 66, 66);
+.util-button {
+    font-family: 'Orbitron', sans-serif;
+    background-color: rgb(243, 120, 120);
 }
+
+
 
 .number-list {
     width: 360px;
@@ -52,6 +60,17 @@
     list-style: none;
     flex-wrap: wrap;
     gap: 3px;
+}
+
+.number-input {
+    background-color: orange;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.operation-input,
+.equals-input {
+    background-color: beige;
+    font-family: 'Orbitron', sans-serif;
 }
 
 button {

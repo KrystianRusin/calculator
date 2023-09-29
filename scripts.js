@@ -25,10 +25,6 @@ numbers.forEach(number => number.addEventListener('click', (event) => {
 
 }))
 
-//Need to find a way to calculate current answer of two numbers between an operator every time the second number is edited
-//Number must be recalculated using the input first number and newly edited second number
-//Result is then stored after an operator is pressed
-
 const operations = document.querySelectorAll(".operation-input")
 operations.forEach(operation => operation.addEventListener('click', (event) => {
     if(operator && secondNumber){
@@ -40,15 +36,13 @@ operations.forEach(operation => operation.addEventListener('click', (event) => {
 }))
 
 const operate = (a, b, operatation) => {
-    console.log("first: " + firstNumber)
-    console.log("second:" + secondNumber)
     if(operatation === "+"){
         result = add(firstNumber, secondNumber)
     }
     if(operatation === "-"){
         result = subtract(firstNumber, secondNumber)
     }
-    if(operatation === "X"){
+    if(operatation === "×"){
         result = multiply(firstNumber, secondNumber)
     }
     if(operatation === "/"){
@@ -56,7 +50,7 @@ const operate = (a, b, operatation) => {
     }
     firstNumber = result
     secondNumber = null
-    console.log("result " + result)
+  
 }
 
 const display = document.getElementById('display')
@@ -69,23 +63,27 @@ const printToDisplay = (userInput) => {
 
 const add = (a, b) => {
     
-    return parseFloat(a) + parseFloat(b)
+    return Math.round((parseFloat(a) + parseFloat(b)) * 100)/100
 }
 
 const subtract = (a,b) => {
-    return parseFloat(a) - parseFloat(b)
+    return Math.round((parseFloat(a) - parseFloat(b)) * 100)/100
 }
 
 const multiply = (a, b) => {
-    return parseFloat(a)*parseFloat(b)
+    return Math.round((parseFloat(a) * parseFloat(b)) * 100)/100
 }
 
 const divide = (a,b) => {
-    return parseFloat(a)/parseFloat(b)
+    return Math.round((parseFloat(a) / parseFloat(b)) * 100)/100
 }
 
 const equals = document.getElementById("=");
 equals.addEventListener('click', () => {
+    if(!operator || !secondNumber){
+        alert("please enter a valid equation")
+        return
+    }
     operate(firstNumber, secondNumber, operator)
     printToDisplay(" = " + result)
     firstNumber = result;
